@@ -1,0 +1,263 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c100000;}
+{\info
+{\keywords cursorLocation=9303, fitsPagesWidth=1}}\margl1008\margr1008\margt1008\vieww15820\viewh15480\viewkind1\viewscale124
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb3 \CocoaLigature0 Last login: Thu Jan 11 13:46:16 on ttys001\
+Inderpreets-MacBook-Air:~ inderpreettoor$ /usr/bin/clear; ssh -i '/Users/inderpreettoor/.bitnami/stackman/machines/xampp/ssh/id_rsa' -o StrictHostKeyChecking=no 'root@192.168.64.2'\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+Warning: Permanently added '192.168.64.2' (ECDSA) to the list of known hosts.\
+\
+The programs included with the Debian GNU/Linux system are free software;\
+the exact distribution terms for each program are described in the\
+individual files in /usr/share/doc/*/copyright.\
+\
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent\
+permitted by applicable law.\
+root@debian:~# mysql -u root -p\
+Enter password: \
+
+\f1\b Welcome to the MariaDB monitor.  Commands end with ; or \\g.
+\f0\b0 \
+
+\f1\b Your MariaDB connection id is 3
+\f0\b0 \
+
+\f1\b Server version: 10.1.29-MariaDB Source distribution
+\f0\b0 \
+\
+
+\f1\b Copyright (c) 2000, 2017, Oracle, MariaDB Corporation Ab and others.
+\f0\b0 \
+\
+
+\f1\b Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.
+\f0\b0 \
+\
+MariaDB [(none)]> show databases;\
++--------------------+\
+| Database           |\
++--------------------+\
+| information_schema |\
+| mysql              |\
+| performance_schema |\
+| phpmyadmin         |\
+| test               |\
++--------------------+\
+
+\f1\b 5 rows in set (0.01 sec)
+\f0\b0 \
+\
+MariaDB [(none)]> create database customer;\
+
+\f1\b Query OK, 1 row affected (0.00 sec)
+\f0\b0 \
+\
+MariaDB [(none)]> use customer;\
+
+\f1\b Database changed
+\f0\b0 \
+MariaDB [customer]> create database csd2204w18;\
+
+\f1\b Query OK, 1 row affected (0.00 sec)
+\f0\b0 \
+\
+MariaDB [customer]> use csd2204w18;\
+
+\f1\b Database changed
+\f0\b0 \
+MariaDB [csd2204w18]> create table customers(\
+    ->        customersID int(2),\
+    ->         name varchar(40),\
+    ->      nickname varchar(10),\
+    ->           address varchar(50),\
+    ->         city varchar(30),\
+    ->         postalCode int(6)\
+    ->         );\
+
+\f1\b Query OK, 0 rows affected (0.01 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> show tables;\
++----------------------+\
+| Tables_in_csd2204w18 |\
++----------------------+\
+| customers            |\
++----------------------+\
+
+\f1\b 1 row in set (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> show tables;\
++----------------------+\
+| Tables_in_csd2204w18 |\
++----------------------+\
+| customers            |\
++----------------------+\
+
+\f1\b 1 row in set (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> desc customers;\
++-------------+-------------+------+-----+---------+-------+\
+| Field       | Type        | Null | Key | Default | Extra |\
++-------------+-------------+------+-----+---------+-------+\
+| customersID | int(2)      | YES  |     | NULL    |       |\
+| name        | varchar(40) | YES  |     | NULL    |       |\
+| nickname    | varchar(10) | YES  |     | NULL    |       |\
+| address     | varchar(50) | YES  |     | NULL    |       |\
+| city        | varchar(30) | YES  |     | NULL    |       |\
+| postalCode  | int(6)      | YES  |     | NULL    |       |\
++-------------+-------------+------+-----+---------+-------+\
+
+\f1\b 6 rows in set (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> show create table customers;\
++-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\
+| Table     | Create Table                                                                                                                                                                                                                                                                                 |\
++-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\
+| customers | CREATE TABLE `customers` (\
+  `customersID` int(2) DEFAULT NULL,\
+  `name` varchar(40) DEFAULT NULL,\
+  `nickname` varchar(10) DEFAULT NULL,\
+  `address` varchar(50) DEFAULT NULL,\
+  `city` varchar(30) DEFAULT NULL,\
+  `postalCode` int(6) DEFAULT NULL\
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |\
++-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\
+
+\f1\b 1 row in set (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(1,'inder','toor','washburn','toronto',123456);\
+
+\f1\b Query OK, 1 row affected (0.01 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(2,'jasleen','hathi','shpd av east','toronto',567890);\
+
+\f1\b Query OK, 1 row affected (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(3,'cherlis','theron','keele street','new york',263789);\
+
+\f1\b Query OK, 1 row affected (0.01 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(4,'denial','jack','spartan building','brazil',456738);\
+
+\f1\b Query OK, 1 row affected (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(5,'donna newman','new','250 carlson blvd','toronto',201023);\
+
+\f1\b Query OK, 1 row affected (0.01 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(6,'eston','est','21 york dv','toronto',764894);\
+
+\f1\b Query OK, 1 row affected (0.01 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(7,'bobby chacko','chac','kennedy','new york',354789);\
+
+\f1\b Query OK, 1 row affected (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(8,'ashko charles','ak','washington','usa',46578);\
+
+\f1\b Query OK, 1 row affected (0.01 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(8,'ashko charles','ak','washington','usa',46578);\
+
+\f1\b Query OK, 1 row affected (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(9,'spec','st','oakville','usa',67494);\
+
+\f1\b Query OK, 1 row affected (0.01 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> insert into customers values(10,'steve job','job','toronto','canada',594032);\
+
+\f1\b Query OK, 1 row affected (0.01 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> select * from customers;\
++-------------+---------------+----------+------------------+----------+------------+\
+| customersID | name          | nickname | address          | city     | postalCode |\
++-------------+---------------+----------+------------------+----------+------------+\
+|           1 | inder         | toor     | washburn         | toronto  |     123456 |\
+|           2 | jasleen       | hathi    | shpd av east     | toronto  |     567890 |\
+|           3 | cherlis       | theron   | keele street     | new york |     263789 |\
+|           4 | denial        | jack     | spartan building | brazil   |     456738 |\
+|           5 | donna newman  | new      | 250 carlson blvd | toronto  |     201023 |\
+|           6 | eston         | est      | 21 york dv       | toronto  |     764894 |\
+|           7 | bobby chacko  | chac     | kennedy          | new york |     354789 |\
+|           8 | ashko charles | ak       | washington       | usa      |      46578 |\
+|           8 | ashko charles | ak       | washington       | usa      |      46578 |\
+|           9 | spec          | st       | oakville         | usa      |      67494 |\
+|          10 | steve job     | job      | toronto          | canada   |     594032 |\
++-------------+---------------+----------+------------------+----------+------------+\
+
+\f1\b 11 rows in set (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> SELECT * FROM Customers\
+    -> WHERE NOT nickname='chac';\
+ERROR 1146 (42S02): Table 'csd2204w18.Customers' doesn't exist\
+MariaDB [csd2204w18]> select * from customers WHERE NOT nickname = 'chac';\
++-------------+---------------+----------+------------------+----------+------------+\
+| customersID | name          | nickname | address          | city     | postalCode |\
++-------------+---------------+----------+------------------+----------+------------+\
+|           1 | inder         | toor     | washburn         | toronto  |     123456 |\
+|           2 | jasleen       | hathi    | shpd av east     | toronto  |     567890 |\
+|           3 | cherlis       | theron   | keele street     | new york |     263789 |\
+|           4 | denial        | jack     | spartan building | brazil   |     456738 |\
+|           5 | donna newman  | new      | 250 carlson blvd | toronto  |     201023 |\
+|           6 | eston         | est      | 21 york dv       | toronto  |     764894 |\
+|           8 | ashko charles | ak       | washington       | usa      |      46578 |\
+|           8 | ashko charles | ak       | washington       | usa      |      46578 |\
+|           9 | spec          | st       | oakville         | usa      |      67494 |\
+|          10 | steve job     | job      | toronto          | canada   |     594032 |\
++-------------+---------------+----------+------------------+----------+------------+\
+
+\f1\b 10 rows in set (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> select * from customers WHERE name = 'denial' AND (city = 'brazil' OR city = 'usa');\
++-------------+--------+----------+------------------+--------+------------+\
+| customersID | name   | nickname | address          | city   | postalCode |\
++-------------+--------+----------+------------------+--------+------------+\
+|           4 | denial | jack     | spartan building | brazil |     456738 |\
++-------------+--------+----------+------------------+--------+------------+\
+
+\f1\b 1 row in set (0.00 sec)
+\f0\b0 \
+\
+MariaDB [csd2204w18]> \
+}
