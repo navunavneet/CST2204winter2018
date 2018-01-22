@@ -1,0 +1,514 @@
+MariaDB [csd2204w18]> CREATE TABLE Employee (
+    ->   EmployeeID  INTEGER PRIMARY KEY,
+    ->   Name        VARCHAR(255) NOT NULL,
+    ->   Position    VARCHAR(255) NOT NULL,
+    ->   Salary      REAL NOT NULL,
+    ->   Remarks     VARCHAR(255)
+    -> ); 
+Query OK, 0 rows affected (3.45 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(1, 'Zapp Brannigan');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(2, "Al Gore's Head");
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(3, 'Barbados Slim');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(4, 'Ogden Wernstrom');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(5, 'Leo Wong');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(6, 'Lrrr');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(7, 'John Zoidberg');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(8, 'John Zoidfarb');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(9, 'Morbo');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(10, 'Judge John Whitey');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(11, 'Calculon');
+ERROR 1146 (42S02): Table 'csd2204w18.client' doesn't exist
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> INSERT INTO Employee VALUES(1, 'Phillip J. Fry', 'Delivery boy', 7500.0, 'Not to be confused with the Philip J. Fry from Hovering Squid World 97a');
+Query OK, 1 row affected (0.80 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Employee VALUES(2, 'Turanga Leela', 'Captain', 10000.0, NULL);
+Query OK, 1 row affected (0.33 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Employee VALUES(3, 'Bender Bending Rodriguez', 'Robot', 7500.0, NULL);
+Query OK, 1 row affected (0.53 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Employee VALUES(4, 'Hubert J. Farnsworth', 'CEO', 20000.0, NULL);
+Query OK, 1 row affected (0.45 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Employee VALUES(5, 'John A. Zoidberg', 'Physician', 25.0, NULL);
+Query OK, 1 row affected (0.23 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Employee VALUES(6, 'Amy Wong', 'Intern', 5000.0, NULL);
+Query OK, 1 row affected (0.25 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Employee VALUES(7, 'Hermes Conrad', 'Bureaucrat', 10000.0, NULL);
+Query OK, 1 row affected (0.20 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Employee VALUES(8, 'Scruffy Scruffington', 'Janitor', 5000.0, NULL);
+Query OK, 1 row affected (0.22 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE TABLE Planet (
+    ->   PlanetID    INTEGER PRIMARY KEY,
+    ->   Name        VARCHAR(255) NOT NULL,
+    ->   Coordinates REAL NOT NULL
+    -> ); 
+Query OK, 0 rows affected (2.50 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Planet VALUES(1, 'Omicron Persei 8', 89475345.3545);
+Query OK, 1 row affected (0.50 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Planet VALUES(2, 'Decapod X', 65498463216.3466);
+Query OK, 1 row affected (0.34 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Planet VALUES(3, 'Mars', 32435021.65468);
+Query OK, 1 row affected (1.17 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Planet VALUES(4, 'Omega III', 98432121.5464);
+Query OK, 1 row affected (0.69 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Planet VALUES(5, 'Tarantulon VI', 849842198.354654);
+Query OK, 1 row affected (0.36 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Planet VALUES(6, 'Cannibalon', 654321987.21654);
+Query OK, 1 row affected (0.36 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Planet VALUES(7, 'DogDoo VII', 65498721354.688);
+Query OK, 1 row affected (0.36 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Planet VALUES(8, 'Nintenduu 64', 6543219894.1654);
+Query OK, 1 row affected (0.44 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Planet VALUES(9, 'Amazonia', 65432135979.6547);
+Query OK, 1 row affected (0.28 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE TABLE Shipment (
+    ->   ShipmentID    INTEGER PRIMARY KEY,
+    ->   ShipmentDate  DATE,
+    ->   Manager       INTEGER NOT NULL,
+    ->   Planet        INTEGER NOT NULL,
+    ->   FOREIGN KEY (Manager) REFERENCES Employee(EmployeeID),
+    ->   FOREIGN KEY (Planet) REFERENCES Planet(PlanetID)
+    -> );
+Query OK, 0 rows affected (2.58 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> INSERT INTO Shipment VALUES(1, '3004/05/11', 1, 1);
+Query OK, 1 row affected (0.13 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Shipment VALUES(2, '3004/05/11', 1, 2);
+Query OK, 1 row affected (0.14 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Shipment VALUES(3, NULL, 2, 3);
+Query OK, 1 row affected (0.41 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Shipment VALUES(4, NULL, 2, 4);
+Query OK, 1 row affected (0.11 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Shipment VALUES(5, NULL, 7, 5);
+Query OK, 1 row affected (0.13 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE TABLE Has_Clearance (
+    ->   Employee  INTEGER NOT NULL,
+    ->   Planet    INTEGER NOT NULL,
+    ->   Level     INTEGER NOT NULL,
+    ->   PRIMARY KEY(Employee, Planet),
+    ->   FOREIGN KEY (Employee) REFERENCES Employee(EmployeeID),
+    ->   FOREIGN KEY (Planet) REFERENCES Planet(PlanetID)
+    -> ); 
+Query OK, 0 rows affected (2.92 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Has_Clearance VALUES(1, 1, 2);
+Query OK, 1 row affected (0.33 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Has_Clearance VALUES(1, 2, 3);
+Query OK, 1 row affected (0.38 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Has_Clearance VALUES(2, 3, 2);
+Query OK, 1 row affected (1.08 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Has_Clearance VALUES(2, 4, 4);
+Query OK, 1 row affected (0.42 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Has_Clearance VALUES(3, 5, 2);
+Query OK, 1 row affected (0.61 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Has_Clearance VALUES(3, 6, 4);
+Query OK, 1 row affected (0.39 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Has_Clearance VALUES(4, 7, 1);
+Query OK, 1 row affected (0.22 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE TABLE Client (
+    ->   AccountNumber INTEGER PRIMARY KEY,
+    ->   Name          VARCHAR(255) NOT NULL
+    -> );
+Query OK, 0 rows affected (1.78 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(1, 'Zapp Brannigan');
+Query OK, 1 row affected (0.13 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(2, "Al Gore's Head");
+Query OK, 1 row affected (0.13 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(3, 'Barbados Slim');
+Query OK, 1 row affected (0.16 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(4, 'Ogden Wernstrom');
+Query OK, 1 row affected (0.28 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(5, 'Leo Wong');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(6, 'Lrrr');
+Query OK, 1 row affected (0.11 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(7, 'John Zoidberg');
+Query OK, 1 row affected (0.14 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(8, 'John Zoidfarb');
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(9, 'Morbo');
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(10, 'Judge John Whitey');
+Query OK, 1 row affected (0.16 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Client VALUES(11, 'Calculon');
+Query OK, 1 row affected (0.14 sec)
+
+MariaDB [csd2204w18]>   
+MariaDB [csd2204w18]> CREATE TABLE Package (
+    ->   Shipment      INTEGER NOT NULL,
+    ->   PackageNumber INTEGER NOT NULL,
+    ->   Contents      VARCHAR(255) NOT NULL,
+    ->   Weight        REAL NOT NULL,
+    ->   Sender        INTEGER NOT NULL,
+    ->   Recipient     INTEGER NOT NULL,
+    ->   PRIMARY KEY(Shipment, PackageNumber),
+    ->   FOREIGN KEY (Shipment) REFERENCES Shipment(ShipmentID),
+    ->   FOREIGN KEY (Sender) REFERENCES Client(AccountNumber),
+    ->   FOREIGN KEY (Recipient) REFERENCES Client(AccountNumber)
+    -> );
+Query OK, 0 rows affected (2.50 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> INSERT INTO Package VALUES(1, 1, 'Undeclared', 1.5, 1, 2);
+Query OK, 1 row affected (0.20 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Package VALUES(2, 1, 'Undeclared', 10.0, 2, 3);
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Package VALUES(2, 2, 'A bucket of krill', 2.0, 8, 7);
+Query OK, 1 row affected (0.17 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Package VALUES(3, 1, 'Undeclared', 15.0, 3, 4);
+Query OK, 1 row affected (0.14 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Package VALUES(3, 2, 'Undeclared', 3.0, 5, 1);
+Query OK, 1 row affected (0.08 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Package VALUES(3, 3, 'Undeclared', 7.0, 2, 3);
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Package VALUES(4, 1, 'Undeclared', 5.0, 4, 5);
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Package VALUES(4, 2, 'Undeclared', 27.0, 1, 2);
+Query OK, 1 row affected (0.17 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Package VALUES(5, 1, 'Undeclared', 100.0, 5, 1);
+Query OK, 1 row affected (0.16 sec)
+
+MariaDB [csd2204w18]> show tables;
++----------------------+
+| Tables_in_csd2204w18 |
++----------------------+
+| client               |
+| employee             |
+| has_clearance        |
+| package              |
+| planet               |
+| shipment             |
++----------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select first_name,last_name from employee where(select from employees where last_name = 'turanga');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from employees where last_name = 'turanga')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name from employee where(select name from employees where last_name = 'turanga');
+ERROR 1146 (42S02): Table 'csd2204w18.employees' doesn't exist
+MariaDB [csd2204w18]> select first_name,last_name from employee where(select name from employee where last_name = 'turanga');
+ERROR 1054 (42S22): Unknown column 'first_name' in 'field list'
+MariaDB [csd2204w18]> select first_name,last_name from employee where(select name from employee where last_name = 'turanga' order by shipping details);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'details)' at line 1
+MariaDB [csd2204w18]> select first_name,last_name from employee where(select name from employee where last_name = 'turanga leela' order by shipping details);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'details)' at line 1
+MariaDB [csd2204w18]> select first_name,last_name from employee where(select name from employee where last_name = 'turanga leela');
+ERROR 1054 (42S22): Unknown column 'first_name' in 'field list'
+MariaDB [csd2204w18]> select first_name,last_name from employee where(select name from employee where last_name = 'turanga leela');
+ERROR 1054 (42S22): Unknown column 'first_name' in 'field list'
+MariaDB [csd2204w18]> select * from employee;
++------------+--------------------------+--------------+--------+-------------------------------------------------------------------------+
+| EmployeeID | Name                     | Position     | Salary | Remarks                                                                 |
++------------+--------------------------+--------------+--------+-------------------------------------------------------------------------+
+|          1 | Phillip J. Fry           | Delivery boy |   7500 | Not to be confused with the Philip J. Fry from Hovering Squid World 97a |
+|          2 | Turanga Leela            | Captain      |  10000 | NULL                                                                    |
+|          3 | Bender Bending Rodriguez | Robot        |   7500 | NULL                                                                    |
+|          4 | Hubert J. Farnsworth     | CEO          |  20000 | NULL                                                                    |
+|          5 | John A. Zoidberg         | Physician    |     25 | NULL                                                                    |
+|          6 | Amy Wong                 | Intern       |   5000 | NULL                                                                    |
+|          7 | Hermes Conrad            | Bureaucrat   |  10000 | NULL                                                                    |
+|          8 | Scruffy Scruffington     | Janitor      |   5000 | NULL                                                                    |
++------------+--------------------------+--------------+--------+-------------------------------------------------------------------------+
+8 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select first_name,last_name from employee where name(select name from employee where last_name = 'turanga leela');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select name from employee where last_name = 'turanga leela')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name from employee where name(select from employee where last_name = 'turanga leela');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select from employee where last_name = 'turanga leela')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name from employee where name(select name employee where last_name = 'turanga leela');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select name employee where last_name = 'turanga leela')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name from employee where name(select name employee where last_name = 'turanga leela' (select shipment details));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select name employee where last_name = 'turanga leela' (select shipment details' at line 1
+MariaDB [csd2204w18]> select first_name,last_name,view from employee where(select cleared palnet from employees);
+ERROR 1146 (42S02): Table 'csd2204w18.employees' doesn't exist
+MariaDB [csd2204w18]> select first_name,last_name,view from employee where(select cleared palnet from employee);
+ERROR 1054 (42S22): Unknown column 'first_name' in 'field list'
+MariaDB [csd2204w18]> select * from planet;
++----------+------------------+------------------+
+| PlanetID | Name             | Coordinates      |
++----------+------------------+------------------+
+|        1 | Omicron Persei 8 |    89475345.3545 |
+|        2 | Decapod X        | 65498463216.3466 |
+|        3 | Mars             |   32435021.65468 |
+|        4 | Omega III        |    98432121.5464 |
+|        5 | Tarantulon VI    | 849842198.354654 |
+|        6 | Cannibalon       |  654321987.21654 |
+|        7 | DogDoo VII       |  65498721354.688 |
+|        8 | Nintenduu 64     |  6543219894.1654 |
+|        9 | Amazonia         | 65432135979.6547 |
++----------+------------------+------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from employee;
++------------+--------------------------+--------------+--------+-------------------------------------------------------------------------+
+| EmployeeID | Name                     | Position     | Salary | Remarks                                                                 |
++------------+--------------------------+--------------+--------+-------------------------------------------------------------------------+
+|          1 | Phillip J. Fry           | Delivery boy |   7500 | Not to be confused with the Philip J. Fry from Hovering Squid World 97a |
+|          2 | Turanga Leela            | Captain      |  10000 | NULL                                                                    |
+|          3 | Bender Bending Rodriguez | Robot        |   7500 | NULL                                                                    |
+|          4 | Hubert J. Farnsworth     | CEO          |  20000 | NULL                                                                    |
+|          5 | John A. Zoidberg         | Physician    |     25 | NULL                                                                    |
+|          6 | Amy Wong                 | Intern       |   5000 | NULL                                                                    |
+|          7 | Hermes Conrad            | Bureaucrat   |  10000 | NULL                                                                    |
+|          8 | Scruffy Scruffington     | Janitor      |   5000 | NULL                                                                    |
++------------+--------------------------+--------------+--------+-------------------------------------------------------------------------+
+8 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select first_name,last_name,salary from employee where name(select name employee where last_name = 'turanga leela');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select name employee where last_name = 'turanga leela')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name,salary from employee where name(select employee where last_name = 'turanga leela');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select employee where last_name = 'turanga leela')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name,salary from employee where name(select name from employee where last_name = 'turanga leela');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select name from employee where last_name = 'turanga leela')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name,salary from employee where name(select from employee where last_name = 'turanga leela');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select from employee where last_name = 'turanga leela')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name,salary from employee where name(select salary employee where last_name = 'turanga leela');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select salary employee where last_name = 'turanga leela')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name,salary from employee where name(select salary from employee where last_name = 'turanga leela');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(select salary from employee where last_name = 'turanga leela')' at line 1
+MariaDB [csd2204w18]> select first_name,last_name,salary from employee where (select salary from employee where last_name = 'turanga leela');
+ERROR 1054 (42S22): Unknown column 'first_name' in 'field list'
+MariaDB [csd2204w18]> select last_name,salary from employee where (select salary from employee where last_name = 'turanga leela');
+ERROR 1054 (42S22): Unknown column 'last_name' in 'field list'
+MariaDB [csd2204w18]> select * from employee where (select salary from employee where last_name = 'turanga leela');
+ERROR 1054 (42S22): Unknown column 'last_name' in 'where clause'
+MariaDB [csd2204w18]> select first_name,last_name from planet where manager(select from planet where manager_id ="omega III")'
+    '> ';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select from planet where manager_id ="omega III")'
+'' at line 1
+MariaDB [csd2204w18]> select first_name,last_name from planet where manager(select from planet where manager_id ="omega III");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select from planet where manager_id ="omega III")' at line 1
+MariaDB [csd2204w18]> desc planet;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| PlanetID    | int(11)      | NO   | PRI | NULL    |       |
+| Name        | varchar(255) | NO   |     | NULL    |       |
+| Coordinates | double       | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from planet;
++----------+------------------+------------------+
+| PlanetID | Name             | Coordinates      |
++----------+------------------+------------------+
+|        1 | Omicron Persei 8 |    89475345.3545 |
+|        2 | Decapod X        | 65498463216.3466 |
+|        3 | Mars             |   32435021.65468 |
+|        4 | Omega III        |    98432121.5464 |
+|        5 | Tarantulon VI    | 849842198.354654 |
+|        6 | Cannibalon       |  654321987.21654 |
+|        7 | DogDoo VII       |  65498721354.688 |
+|        8 | Nintenduu 64     |  6543219894.1654 |
+|        9 | Amazonia         | 65432135979.6547 |
++----------+------------------+------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select first_name,last_name from planet where manager(select from planet where first_name ="omega III");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select from planet where first_name ="omega III")' at line 1
+MariaDB [csd2204w18]> select first_name,last_name from planet where manager(select from planet where last_name ="omega III");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select from planet where last_name ="omega III")' at line 1
+MariaDB [csd2204w18]> select first_name,last_name from planet where manager(select manager from planet where last_name ="omega III");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select manager from planet where last_name ="omega III")' at line 1
+MariaDB [csd2204w18]> create a view to display employee whose name is "turanga leela"
+    -> ';
+    '> ';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a view to display employee whose name is "turanga leela"
+';
+'' at line 1
+MariaDB [csd2204w18]> create a view to display employee whose name = "turanga leela"
+    -> ';
+    '> ';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a view to display employee whose name = "turanga leela"
+';
+'' at line 1
+MariaDB [csd2204w18]> crete a view AS select * from employee where name ="turanga leela");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'crete a view AS select * from employee where name ="turanga leela")' at line 1
+MariaDB [csd2204w18]> create view"v7 AS select first_name,last_name from client where(select client from package = "uncleared);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"v7 AS select first_name,last_name from client where(select client from package ' at line 1
+MariaDB [csd2204w18]> create view"v7 AS select first_name,last_name from client where(select client from packages = "uncleared);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"v7 AS select first_name,last_name from client where(select client from packages' at line 1
+MariaDB [csd2204w18]> create view "v7" AS select first_name,last_name from client where(select client from packages = "uncleared);
+    "> ';
+    "> ';
+    "> ';
+    "> )';
+    "> create view "v7" AS select first_name,last_name from client where(select client whose packages = "uncleared);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"v7" AS select first_name,last_name from client where(select client from package' at line 1
+MariaDB [csd2204w18]>  select first_name,last_name from client where(select client whose packages = "uncleared);
+    "> ';
+    ">  select first_name,last_name from client where(select client whose packages = "uncleared");
+    "> ';
+    "> re(select client whose packages = "uncleared");
+    "> ';
+    "> create view "v7" AS select first_name,last_name from client where(select client whose packages = "uncleared);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'packages = "uncleared);
+';
+ select first_name,last_name from client where(select' at line 1
+MariaDB [csd2204w18]> select * from has clearence;
+ERROR 1146 (42S02): Table 'csd2204w18.has' doesn't exist
+MariaDB [csd2204w18]> select * from clearence;
+ERROR 1146 (42S02): Table 'csd2204w18.clearence' doesn't exist
+MariaDB [csd2204w18]> show tables;
++----------------------+
+| Tables_in_csd2204w18 |
++----------------------+
+| client               |
+| employee             |
+| has_clearance        |
+| package              |
+| planet               |
+| shipment             |
++----------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from has_clearence;
+ERROR 1146 (42S02): Table 'csd2204w18.has_clearence' doesn't exist
+MariaDB [csd2204w18]> select * from has_clearance;
++----------+--------+-------+
+| Employee | Planet | Level |
++----------+--------+-------+
+|        1 |      1 |     2 |
+|        1 |      2 |     3 |
+|        2 |      3 |     2 |
+|        2 |      4 |     4 |
+|        3 |      5 |     2 |
+|        3 |      6 |     4 |
+|        4 |      7 |     1 |
++----------+--------+-------+
+7 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> update tables <shipping> from shipment;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<shipping> from shipment' at line 1
+MariaDB [csd2204w18]> update tables <shipment> from shipment;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<shipment> from shipment' at line 1
+MariaDB [csd2204w18]> update tables <'shipment'> from shipment;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<'shipment'> from shipment' at line 1
+MariaDB [csd2204w18]> update tables <'shipment'> from shipment(select shipment date to current date); 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<'shipment'> from shipment(select shipment date to current date)' at line 1
+MariaDB [csd2204w18]> update tables <'shipment'> from shipment(select shipment date to current date from shipment); 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<'shipment'> from shipment(select shipment date to current date from shipment)' at line 1
+MariaDB [csd2204w18]> update tables <shipment> from shipment(select shipment date to current date from shipment); 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<shipment> from shipment(select shipment date to current date from shipment)' at line 1
+MariaDB [csd2204w18]> UPDATE shipping set shipment date = cureent date where shipment id = 3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'date = cureent date where shipment id = 3' at line 1
+MariaDB [csd2204w18]> UPDATE shipping set shipment date = cureent date where shipment_id = 3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'date = cureent date where shipment_id = 3' at line 1
+MariaDB [csd2204w18]> UPDATE shipping set shipment date = cureent date where shipment id = 5;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'date = cureent date where shipment id = 5' at line 1
+MariaDB [csd2204w18]> select * from shipment;
++------------+--------------+---------+--------+
+| ShipmentID | ShipmentDate | Manager | Planet |
++------------+--------------+---------+--------+
+|          1 | 3004-05-11   |       1 |      1 |
+|          2 | 3004-05-11   |       1 |      2 |
+|          3 | NULL         |       2 |      3 |
+|          4 | NULL         |       2 |      4 |
+|          5 | NULL         |       7 |      5 |
++------------+--------------+---------+--------+
+5 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> UPDATE shipping set shipment_date = cureent_date where shipment id = 5;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id = 5' at line 1
+MariaDB [csd2204w18]> UPDATE shipping set shipment_date = cureent_date where shipmentdate=";
+    "> ';
+    "> UPDATE shipping set shipment_date = cureent_date where shipmentdate='';
+    "> ':
+    "> ";
+ERROR 1146 (42S02): Table 'csd2204w18.shipping' doesn't exist
+MariaDB [csd2204w18]> UPDATE shipping set shipment_date = cureent_date where shipmentdate='';
+ERROR 1146 (42S02): Table 'csd2204w18.shipping' doesn't exist
+MariaDB [csd2204w18]> UPDATE shipment set shipment_date = cureent_date where shipmentdate='';
+ERROR 1054 (42S22): Unknown column 'shipment_date' in 'field list'
+MariaDB [csd2204w18]> UPDATE shipment set shipping_date = cureent_date where shipmentdate='';
+ERROR 1054 (42S22): Unknown column 'shipping_date' in 'field list'
+MariaDB [csd2204w18]> UPDATE shipment set shippingdate = cureent_date where shipmentdate='';
+ERROR 1054 (42S22): Unknown column 'shippingdate' in 'field list'
+MariaDB [csd2204w18]> UPDATE shipment set shipping_date=current_date where shipmentdate='';
+ERROR 1054 (42S22): Unknown column 'shipping_date' in 'field list'
+MariaDB [csd2204w18]> create view V11 AS select * from employee where name ="turanga leela";
+Query OK, 0 rows affected (0.44 sec)
+
+MariaDB [csd2204w18]> select * from employee;
++------------+--------------------------+--------------+--------+-------------------------------------------------------------------------+
+| EmployeeID | Name                     | Position     | Salary | Remarks                                                                 |
++------------+--------------------------+--------------+--------+-------------------------------------------------------------------------+
+|          1 | Phillip J. Fry           | Delivery boy |   7500 | Not to be confused with the Philip J. Fry from Hovering Squid World 97a |
+|          2 | Turanga Leela            | Captain      |  10000 | NULL                                                                    |
+|          3 | Bender Bending Rodriguez | Robot        |   7500 | NULL                                                                    |
+|          4 | Hubert J. Farnsworth     | CEO          |  20000 | NULL                                                                    |
+|          5 | John A. Zoidberg         | Physician    |     25 | NULL                                                                    |
+|          6 | Amy Wong                 | Intern       |   5000 | NULL                                                                    |
+|          7 | Hermes Conrad            | Bureaucrat   |  10000 | NULL                                                                    |
+|          8 | Scruffy Scruffington     | Janitor      |   5000 | NULL                                                                    |
++------------+--------------------------+--------------+--------+-------------------------------------------------------------------------+
+8 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> create view V2 AS select * from employee where name ="turanga leela";
+Query OK, 0 rows affected (0.08 sec)
+
+MariaDB [csd2204w18]> exit
